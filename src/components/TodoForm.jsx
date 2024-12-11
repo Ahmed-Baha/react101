@@ -11,7 +11,6 @@ export default function TodoForm(){
             <Input placeholder="Input component" value={input} onChange={(e)=>setInput(e.target.value)} />
             <Button onClick={()=>addTask()}>add</Button>
             <Button>Clear</Button>
-            <Button>Clear</Button>
         </div>
         </div>
     )
