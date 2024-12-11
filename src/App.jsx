@@ -1,21 +1,36 @@
 import "@mantine/core/styles.css";
-import {BrowserRouter} from "react-router-dom"
-import { Routes } from "react-router-dom";
-import UseRoute from "./routes/useRoute";
-import rootRoute from "./routes/rootRoute";
+import { useRoutes } from "react-router-dom";
 import { CounterProvider } from "./contexts/CounterContext__2";
+import Home from "./pages/Home";
+import Todo from "./pages/Todo";
+import { About } from "./pages/About";
 function App() {
-const RouterBuilder=UseRoute()
+  const routeElements=useRoutes(
+  [
+    {
+      path: "/", 
+      element:<Home/>
+    },
+    {
+      path: "/Todo", 
+      element:<Todo/>
+    },
+    {
+      path: "/About", 
+      element:<About/>
+    },
+  ])
+  
   return (
+    <CounterProvider>
+     
     
-      <CounterProvider>
-    <BrowserRouter>
-    <Routes>
-      {rootRoute(RouterBuilder)}
-    </Routes>
-    </BrowserRouter>
+ 
+      {routeElements}
+      
+      
     </CounterProvider>
-    );
+  );
 }
 
 export default App;
